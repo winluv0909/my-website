@@ -3,11 +3,12 @@
 import { useState } from "react";
 
 export default function Contact() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: ""
-  });
+  return (
+    <main className="p-10">
+      <h1 className="text-3xl font-bold mb-6">Contact Us</h1>
+    </main>
+    );
+  }
 
   const handleChange = (e) => {
     setForm({
@@ -69,7 +70,6 @@ export default function Contact() {
         <button type="submit" className="bg-slate-900 text-white py-2 rounded">
           Send Message
         </button>
-      </form>
-    </main>
-  );
-}
+    </form>
+  </main>
+);
