@@ -50,12 +50,12 @@ export default function Contact() {
           className="border p-2 rounded"
         />
 
-        <textarea
+       <textarea
           name="message"
           placeholder="Your Message"
           onChange={handleChange}
           className="border p-2 rounded"
-        />
+        ></textarea>
 
         <button type="submit" className="bg-slate-900 text-white py-2 rounded">
           Send Message
