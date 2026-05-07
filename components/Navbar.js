@@ -34,30 +34,30 @@ export default function Navbar() {
   }, [open]);
 
   const navStyle = scrolled
-  ? `
-    bg-white/70
-    backdrop-blur-2xl
-    border-b
-    border-white/20
-    shadow-[0_8px_30px_rgb(0,0,0,0.04)]
-  `
-  : "bg-transparent";
+    ? `
+      bg-white/70
+      backdrop-blur-2xl
+      border-b
+      border-white/20
+      shadow-[0_8px_30px_rgb(0,0,0,0.04)]
+    `
+    : "bg-transparent";
 
   const linkStyle = (path) =>
-  `
-    relative
-    block
-    py-2
-    text-sm
-    tracking-wide
-    transition-all
-    duration-300
-    ${
-      pathname === path
-        ? "text-black font-semibold"
-        : "text-gray-500 hover:text-black"
-    }
-  `;
+    `
+      relative
+      block
+      py-2
+      text-sm
+      tracking-wide
+      transition-all
+      duration-300
+      ${
+        pathname === path
+          ? "text-black font-semibold"
+          : "text-gray-500 hover:text-black"
+      }
+    `;
 
   const mobileLinkStyle = (path) =>
     `text-lg py-3 border-b border-gray-100 transition duration-300 ${
@@ -89,26 +89,26 @@ export default function Navbar() {
 
           {/* DESKTOP MENU */}
           <nav className="hidden md:flex items-center gap-8 text-sm">
-            <Link href="/" className={desktopLinkStyle("/")}>
+            <Link href="/" className={linkStyle("/")}>
               Home
             </Link>
 
-            <Link href="/about" className={desktopLinkStyle("/about")}>
+            <Link href="/about" className={linkStyle("/about")}>
               About
             </Link>
 
-            <Link href="/services" className={desktopLinkStyle("/services")}>
+            <Link href="/services" className={linkStyle("/services")}>
               Services
             </Link>
 
             <Link
               href="/achievements"
-              className={desktopLinkStyle("/achievements")}
+              className={linkStyle("/achievements")}
             >
               Achievements
             </Link>
 
-            <Link href="/contact" className={desktopLinkStyle("/contact")}>
+            <Link href="/contact" className={linkStyle("/contact")}>
               Contact
             </Link>
           </nav>
@@ -154,57 +154,59 @@ export default function Navbar() {
       ></div>
 
       {/* MOBILE MENU */}
-      <div className="md:hidden bg-white/80 backdrop-blur-2xl border-t border-white/20 px-6 pb-6 shadow-xl">
-        <div className="pt-28 px-8 flex flex-col">
+      {open && (
+        <div className="md:hidden bg-white/80 backdrop-blur-2xl border-t border-white/20 px-6 pb-6 shadow-xl fixed top-0 left-0 w-full z-50 min-h-screen">
+          <div className="pt-28 px-8 flex flex-col">
 
-          <Link
-            href="/"
-            className={mobileLinkStyle("/")}
-            onClick={() => setOpen(false)}
-          >
-            Home
-          </Link>
+            <Link
+              href="/"
+              className={mobileLinkStyle("/")}
+              onClick={() => setOpen(false)}
+            >
+              Home
+            </Link>
 
-          <Link
-            href="/about"
-            className={mobileLinkStyle("/about")}
-            onClick={() => setOpen(false)}
-          >
-            About
-          </Link>
+            <Link
+              href="/about"
+              className={mobileLinkStyle("/about")}
+              onClick={() => setOpen(false)}
+            >
+              About
+            </Link>
 
-          <Link
-            href="/services"
-            className={mobileLinkStyle("/services")}
-            onClick={() => setOpen(false)}
-          >
-            Services
-          </Link>
+            <Link
+              href="/services"
+              className={mobileLinkStyle("/services")}
+              onClick={() => setOpen(false)}
+            >
+              Services
+            </Link>
 
-          <Link
-            href="/achievements"
-            className={mobileLinkStyle("/achievements")}
-            onClick={() => setOpen(false)}
-          >
-            Achievements
-          </Link>
+            <Link
+              href="/achievements"
+              className={mobileLinkStyle("/achievements")}
+              onClick={() => setOpen(false)}
+            >
+              Achievements
+            </Link>
 
-          <Link
-            href="/contact"
-            className={mobileLinkStyle("/contact")}
-            onClick={() => setOpen(false)}
-          >
-            Contact
-          </Link>
+            <Link
+              href="/contact"
+              className={mobileLinkStyle("/contact")}
+              onClick={() => setOpen(false)}
+            >
+              Contact
+            </Link>
 
-          {/* Bottom info */}
-          <div className="mt-12 text-sm text-gray-400 leading-relaxed">
-            <p>〒370-0115 群馬県伊勢崎市境美原1-9</p>
-            <p className="mt-2">info@osaki-sogyo.com</p>
+            {/* Bottom info */}
+            <div className="mt-12 text-sm text-gray-400 leading-relaxed border-t border-gray-200 pt-6">
+              <p>〒370-0115 群馬県伊勢崎市境美原1-9</p>
+              <p className="mt-2">info@osaki-sogyo.com</p>
+            </div>
+
           </div>
-
         </div>
-      </div>
+      )}
     </>
   );
 }
