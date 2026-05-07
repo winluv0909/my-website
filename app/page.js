@@ -143,7 +143,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-16 items-stretch">
 
             <FadeUp delay={0.1}>
-             <div className="p-10 bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+             <div className="fade-up p-10 bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
                 <h3 className="font-semibold text-lg">
                   人材アウトソーシング
                 </h3>
@@ -155,7 +155,7 @@ export default function Home() {
             </FadeUp>
 
             <FadeUp delay={0.2}>
-              <div className="p-10 bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+              <div className="fade-up p-10 bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
                 <h3 className="font-semibold text-lg">
                   グローバル採用・人材マッチング
                 </h3>
@@ -167,7 +167,7 @@ export default function Home() {
             </FadeUp>
 
             <FadeUp delay={0.3}>
-              <div className="p-10 bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+              <div className="fade-up p-10 bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
                 <h3 className="font-semibold text-lg">
                   ビジネス・人材サポートサービス
                 </h3>
