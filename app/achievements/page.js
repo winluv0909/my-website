@@ -105,33 +105,89 @@ export default function Achievements() {
         </div>
       </section>
 
-      {/* ACHIEVEMENTS LIST */}
-      <section className="pb-24 px-6">
-        <div className="max-w-4xl mx-auto space-y-10">
+      {/* ACHIEVEMENTS TIMELINE */}
+<section className="pb-28 px-6 bg-gray-50">
+  <div className="max-w-5xl mx-auto">
 
-          <div className="fade-up">
-            <h3 className="text-xl font-semibold">
+    {/* SECTION TITLE */}
+    <div className="text-center mb-20 fade-up">
+      <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+        会社沿革・実績
+      </h2>
+
+      <p className="mt-4 text-gray-500">
+        当社の歩みと重要な実績をご紹介いたします。
+      </p>
+    </div>
+
+    {/* TIMELINE */}
+    <div className="relative">
+
+      {/* Vertical Line */}
+      <div className="absolute left-4 md:left-1/2 top-0 h-full w-0.5 bg-gray-200 -translate-x-1/2"></div>
+
+      {/* ITEM 1 */}
+      <div className="relative mb-16 fade-up">
+
+        {/* Dot */}
+        <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-black rounded-full -translate-x-1/2 top-2 z-10"></div>
+
+        <div className="ml-14 md:ml-0 md:grid md:grid-cols-2 md:gap-12 items-start">
+
+          {/* LEFT */}
+          <div className="md:text-right md:pr-10">
+            <p className="text-sm tracking-widest text-gray-400 uppercase">
+              Achievement
+            </p>
+
+            <h3 className="mt-2 text-2xl font-bold text-gray-900">
               平成25年11月07日
             </h3>
+          </div>
 
-            <p className="text-gray-600 mt-2">
+          {/* RIGHT */}
+          <div className="mt-4 md:mt-0 bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition duration-300">
+            <p className="text-gray-600 leading-relaxed">
               東和新生会様主催、東和銀行様等共催にてビジネス交流会で当社がブースを出展致します。グリーンドーム前橋で開催されます。
             </p>
           </div>
 
-          <div className="fade-up">
-            <h3 className="text-xl font-semibold">
+        </div>
+      </div>
+
+      {/* ITEM 2 */}
+      <div className="relative fade-up">
+
+        {/* Dot */}
+        <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-black rounded-full -translate-x-1/2 top-2 z-10"></div>
+
+        <div className="ml-14 md:ml-0 md:grid md:grid-cols-2 md:gap-12 items-start">
+
+          {/* LEFT */}
+          <div className="md:text-right md:pr-10">
+            <p className="text-sm tracking-widest text-gray-400 uppercase">
+              Recognition
+            </p>
+
+            <h3 className="mt-2 text-2xl font-bold text-gray-900">
               令和2年3月26日
             </h3>
+          </div>
 
-            <p className="text-gray-600 mt-2">
+          {/* RIGHT */}
+          <div className="mt-4 md:mt-0 bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition duration-300">
+            <p className="text-gray-600 leading-relaxed">
               群馬県安全運転管理者協議会様から感謝状を頂きました。
             </p>
           </div>
 
         </div>
-      </section>
+      </div>
 
-    </main>
+    </div>
+  </div>
+</section>
+
+</main>
   );
 }
