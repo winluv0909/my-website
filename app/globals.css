@@ -127,17 +127,30 @@ body {
 body {
   font-family: system-ui, sans-serif;
 }
-/* FADE UP ANIMATION */
+
 .fade-up {
   opacity: 0;
   transform: translateY(40px);
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
-  will-change: opacity, transform;
+  transition: all 0.8s ease;
 }
 
 .fade-up.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+.perspective {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
 }
