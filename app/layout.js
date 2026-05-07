@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import BackToTop from "../components/BackToTop";
+import ScrollProgress from "../components/ScrollProgress";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +38,8 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className={`${notoJP.className} min-h-full flex flex-col bg-white`}>
+
+        <ScrollProgress />
 
         {/* NAVBAR */}
         <Navbar />
