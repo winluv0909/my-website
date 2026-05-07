@@ -1,8 +1,11 @@
 import { Geist, Geist_Mono, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
+
 import { Toaster } from "react-hot-toast";
+
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import BackToTop from "../components/BackToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,7 +16,8 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-/* ✅ ADD THIS */
+
+/* ✅ JAPANESE FONT */
 const notoJP = Noto_Sans_JP({
   variable: "--font-noto-jp",
   subsets: ["latin"],
@@ -22,7 +26,8 @@ const notoJP = Noto_Sans_JP({
 
 export const metadata = {
   title: "Oosaki Sogyo Co., Ltd.",
-  description: "Providing reliable business solutions and manpower services since 1990.",
+  description:
+    "Providing reliable business solutions and manpower services since 1990.",
 };
 
 export default function RootLayout({ children }) {
@@ -31,25 +36,32 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-     <body className={`${notoJP.className} min-h-full flex flex-col`}>
+      <body className={`${notoJP.className} min-h-full flex flex-col bg-white`}>
 
-        {/* ✅ NAVBAR */}
+        {/* NAVBAR */}
         <Navbar />
-          <Toaster
-             position="top-right"
-             toastOptions={{
-              style: {
+
+        {/* TOASTER */}
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            style: {
               background: "#111",
               color: "#fff",
-              borderRadius: "10px",
-         },
-      }}/>
-        {/* ✅ PAGE CONTENT */}
+              borderRadius: "12px",
+            },
+          }}
+        />
+
+        {/* PAGE CONTENT */}
         <main className="pt-24 grow">
           {children}
         </main>
 
-        {/* ✅ FOOTER */}
+        {/* BACK TO TOP */}
+        <BackToTop />
+
+        {/* FOOTER */}
         <Footer />
 
       </body>
