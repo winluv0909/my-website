@@ -27,9 +27,55 @@ const notoJP = Noto_Sans_JP({
 });
 
 export const metadata = {
-  title: "Oosaki Sogyo Co., Ltd.",
+  metadataBase: new URL("https://your-domain.vercel.app"),
+
+  title: {
+    default: "株式会社大崎総業 | Oosaki Sogyo Co., Ltd.",
+    template: "%s | 株式会社大崎総業",
+  },
+
   description:
-    "Providing reliable business solutions and manpower services since 1990.",
+    "株式会社大崎総業は、日本における人材サービス・アウトソーシング・グローバル採用を提供する企業です。",
+
+  keywords: [
+    "株式会社大崎総業",
+    "Oosaki Sogyo",
+    "Japan manpower services",
+    "Japanese outsourcing company",
+    "人材派遣",
+    "群馬県",
+    "伊勢崎市",
+    "Japanese staffing company",
+    "外国人雇用",
+    "global recruitment japan",
+  ],
+
+  authors: [{ name: "Oosaki Sogyo Co., Ltd." }],
+
+  creator: "Oosaki Sogyo Co., Ltd.",
+  publisher: "Oosaki Sogyo Co., Ltd.",
+
+  openGraph: {
+    title: "株式会社大崎総業 | Oosaki Sogyo Co., Ltd.",
+    description:
+      "日本における信頼性の高い人材サービス・アウトソーシング企業。",
+    url: "https://osakisogyo.vercel.app",
+    siteName: "株式会社大崎総業",
+    locale: "ja_JP",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "株式会社大崎総業",
+    description:
+      "日本における信頼性の高い人材サービス・アウトソーシング企業。",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }) {
