@@ -284,7 +284,7 @@ const handleFlip = (index) => {
   end={1990}
   duration={3}
   separator=""
-/>
+    />
     </div>
 
     <p className="mt-5 text-gray-300 tracking-wide">
