@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import BackToTop from "../components/BackToTop";
 import ScrollProgress from "../components/ScrollProgress";
+import PageTransition from "../components/PageTransition";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -57,9 +58,11 @@ export default function RootLayout({ children }) {
         />
 
         {/* PAGE CONTENT */}
-        <main className="pt-24 grow">
-          {children}
-        </main>
+       <main className="pt-24 grow">
+        <PageTransition>
+         {children}
+      </PageTransition>
+    </main>
 
         {/* BACK TO TOP */}
         <BackToTop />
