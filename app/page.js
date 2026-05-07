@@ -6,15 +6,15 @@ export default function Home() {
 
   const [flippedCards, setFlippedCards] = useState([]);
 
-  const handleFlip = (index) => {
-    if (flippedCards.includes(index)) {
-      setFlippedCards(
-        flippedCards.filter((item) => item !== index)
-      );
-    } else {
-      setFlippedCards([...flippedCards, index]);
-    }
-  };
+  const [flippedCard, setFlippedCard] = useState(null);
+
+const handleFlip = (index) => {
+  if (flippedCard === index) {
+    setFlippedCard(null);
+  } else {
+    setFlippedCard(index);
+  }
+};
 
   useEffect(() => {
     const elements = document.querySelectorAll(".fade-up");
@@ -141,7 +141,7 @@ export default function Home() {
             >
               <div
                 className={`relative w-full h-80 transition-transform duration-700 transform-style-preserve-3d ${
-                  flippedCards.includes(1) ? "rotate-y-180" : ""
+                  flippedCard === 1 ? "rotate-y-180" : ""
                 }`}
               >
 
@@ -177,7 +177,7 @@ export default function Home() {
             >
               <div
                 className={`relative w-full h-80 transition-transform duration-700 transform-style-preserve-3d ${
-                  flippedCards.includes(2) ? "rotate-y-180" : ""
+                  flippedCard === 2 ? "rotate-y-180" : ""
                 }`}
               >
 
@@ -211,7 +211,7 @@ export default function Home() {
             >
               <div
                 className={`relative w-full h-80 transition-transform duration-700 transform-style-preserve-3d ${
-                  flippedCards.includes(3) ? "rotate-y-180" : ""
+                  flippedCard === 3 ? "rotate-y-180" : ""
                 }`}
               >
 
