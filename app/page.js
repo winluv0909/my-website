@@ -142,8 +142,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-16 items-stretch">
 
-            <FadeUp delay={0.1}>
-             <div className="fade-up p-10 bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+            <div className="fade-up p-10 bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
                 <h3 className="font-semibold text-lg">
                   人材アウトソーシング
                 </h3>
@@ -152,10 +151,8 @@ export default function Home() {
                   さまざまな業界の業務運営を支援するため、熟練した信頼性の高い人材を提供し、効率性・柔軟性・円滑な人材管理の実現をサポートします。
                 </p>
               </div>
-            </FadeUp>
 
-            <FadeUp delay={0.2}>
-              <div className="fade-up p-10 bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+            <div className="fade-up p-10 bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
                 <h3 className="font-semibold text-lg">
                   グローバル採用・人材マッチング
                 </h3>
@@ -164,10 +161,9 @@ export default function Home() {
                   日本企業と世界中の優秀な人材をつなぎ、企業と求職者の双方にとって最適なマッチングを実現し、長期的な成功を支援します。
                 </p>
               </div>
-            </FadeUp>
+            
 
-            <FadeUp delay={0.3}>
-              <div className="fade-up p-10 bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+            <div className="fade-up p-10 bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
                 <h3 className="font-semibold text-lg">
                   ビジネス・人材サポートサービス
                 </h3>
@@ -176,7 +172,6 @@ export default function Home() {
                   人材配置ソリューション、業務プロセスの最適化、人員計画などを含む包括的な運営・コンサルティングサポートを提供し、生産性および企業パフォーマンスの向上を支援します。
                 </p>
               </div>
-            </FadeUp>
 
           </div>
         </div>
