@@ -161,10 +161,15 @@ const handleFlip = (index) => {
                 {/* BACK */}
                 <div className="absolute inset-0 rotate-y-180 backface-hidden bg-black text-white rounded-2xl shadow-xl p-10 flex items-center justify-center">
 
-                  <p className="text-2xl font-semibold">
-                    ご覧いただき、誠にありがとうございます。
-                  </p>
+                 <div>
+              <h3 className="text-3xl font-bold">
+                Thank You!
+              </h3>
 
+              <p className="mt-4 text-gray-300">
+                ご覧いただき、誠にありがとうございます。
+              </p>
+            </div>
                 </div>
 
               </div>
@@ -194,10 +199,15 @@ const handleFlip = (index) => {
                 </div>
 
                 <div className="absolute inset-0 rotate-y-180 backface-hidden bg-black text-white rounded-2xl shadow-xl p-10 flex items-center justify-center">
+<div>
+              <h3 className="text-3xl font-bold">
+                Thank You!
+              </h3>
 
-                  <p className="text-2xl font-semibold">
-                    ご覧いただき、誠にありがとうございます。
-                  </p>
+              <p className="mt-4 text-gray-300">
+                ご覧いただき、誠にありがとうございます。
+              </p>
+            </div>
 
                 </div>
 
@@ -228,10 +238,15 @@ const handleFlip = (index) => {
                 </div>
 
                 <div className="absolute inset-0 rotate-y-180 backface-hidden bg-black text-white rounded-2xl shadow-xl p-10 flex items-center justify-center">
+<div>
+              <h3 className="text-3xl font-bold">
+                Thank You!
+              </h3>
 
-                  <p className="text-2xl font-semibold">
-                    ご覧いただき、誠にありがとうございます。
-                  </p>
+              <p className="mt-4 text-gray-300">
+                ご覧いただき、誠にありがとうございます。
+              </p>
+            </div>
 
                 </div>
 

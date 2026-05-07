@@ -1,5 +1,6 @@
 "use client";
-import { useEffect } from "react";
+
+import { useEffect, useState } from "react";
 import {
   Briefcase,
   LineChart,
@@ -10,6 +11,17 @@ import {
 } from "lucide-react";
 
 export default function ServicesPage() {
+  const [activeCard, setActiveCard] = useState(null);
+
+  const [flippedCard, setFlippedCard] = useState(null);
+
+const handleFlip = (index) => {
+  if (flippedCard === index) {
+    setFlippedCard(null);
+  } else {
+    setFlippedCard(index);
+  }
+};
 
   useEffect(() => {
     const elements = document.querySelectorAll(".fade-up");
@@ -51,122 +63,308 @@ export default function ServicesPage() {
       </section>
 
       {/* SERVICES GRID */}
-      <section className="py-24 px-6 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
+<section className="py-24 px-6 bg-gray-50">
+  <div className="max-w-6xl mx-auto">
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
 
-            {/* CARD 1 */}
-            <div className="group relative p-10 bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 fade-up overflow-hidden">
-              
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none bg-[linear-gradient(to_right,rgba(191,219,254,0.4),transparent,rgba(233,213,255,0.4))]"></div>
+      {/* CARD 1 */}
+      <div
+        onClick={() => setActiveCard(activeCard === 1 ? null : 1)}
+        className="relative h-80 md:h-96 perspective cursor-pointer fade-up"
+      >
 
-              <div className="mb-6 inline-flex p-4 rounded-xl bg-gray-100">
-                <Briefcase className="w-6 h-6 text-gray-700" />
-              </div>
+        <div
+          className={`relative w-full h-full duration-700 transform-style-preserve-3d ${
+            activeCard === 1 ? "rotate-y-180" : ""
+          }`}
+        >
 
-              <h3 className="text-xl font-semibold">
-                人材ソリューション
-              </h3>
+          {/* FRONT */}
+          <div className="absolute inset-0 backface-hidden group p-10 bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
 
-              <p className="mt-4 text-gray-500 leading-relaxed">
-                さまざまな業界のニーズに合わせて、熟練した信頼できる人材を提供し、企業の円滑で効率的な業務運営を支援します。
-              </p>
+            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none bg-[linear-gradient(to_right,rgba(191,219,254,0.4),transparent,rgba(233,213,255,0.4))]"></div>
+
+            <div className="mb-6 inline-flex p-4 rounded-xl bg-gray-100">
+              <Briefcase className="w-6 h-6 text-gray-700" />
             </div>
 
-            {/* CARD 2 */}
-            <div className="group relative p-10 bg-white rounded-2xl shadow-sm border border-gray-200 hover-lift transition-all duration-300 fade-up overflow-hidden">
-              
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none bg-[linear-gradient(to_right,rgba(191,219,254,0.4),transparent,rgba(233,213,255,0.4))]"></div>
+            <h3 className="text-xl font-semibold">
+              人材ソリューション
+            </h3>
 
-              <div className="mb-6 inline-flex p-4 rounded-xl bg-gray-100">
-                <LineChart className="w-6 h-6 text-gray-700" />
-              </div>
+            <p className="mt-4 text-gray-500 leading-relaxed">
+              さまざまな業界のニーズに合わせて、熟練した信頼できる人材を提供し、企業の円滑で効率的な業務運営を支援します。
+            </p>
 
-              <h3 className="text-xl font-semibold">
-                ビジネスコンサルティング
+          </div>
+
+          {/* BACK */}
+          <div className="absolute inset-0 rotate-y-180 backface-hidden bg-black text-white rounded-2xl flex items-center justify-center text-center p-10 shadow-xl">
+
+            <div>
+              <h3 className="text-3xl font-bold">
+                Thank You!
               </h3>
 
-              <p className="mt-4 text-gray-500 leading-relaxed">
-                生産性の向上、業務プロセスの最適化、そして確かな経営判断を支援する専門的なアドバイスを提供します。
-              </p>
-            </div>
-
-            {/* CARD 3 */}
-            <div className="group relative p-10 bg-white rounded-2xl shadow-sm border border-gray-200 hover-lift transition-all duration-300 fade-up overflow-hidden">
-              
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none bg-[linear-gradient(to_right,rgba(191,219,254,0.4),transparent,rgba(233,213,255,0.4))]"></div>
-
-              <div className="mb-6 inline-flex p-4 rounded-xl bg-gray-100">
-                <UserCheck className="w-6 h-6 text-gray-700" />
-              </div>
-
-              <h3 className="text-xl font-semibold">
-                人材紹介・マッチング
-              </h3>
-
-              <p className="mt-4 text-gray-500 leading-relaxed">
-                日本国内の安定した企業と、世界各国の優秀な人材を結びつけ、企業と求職者双方にとって最適なマッチングを実現します。
-              </p>
-            </div>
-
-            {/* CARD 4 */}
-            <div className="group relative p-10 bg-white rounded-2xl shadow-sm border border-gray-200 hover-lift transition-all duration-300 fade-up overflow-hidden">
-              
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none bg-[linear-gradient(to_right,rgba(191,219,254,0.4),transparent,rgba(233,213,255,0.4))]"></div>
-
-              <div className="mb-6 inline-flex p-4 rounded-xl bg-gray-100">
-                <Wrench className="w-6 h-6 text-gray-700" />
-              </div>
-
-              <h3 className="text-xl font-semibold">
-                業務サポート
-              </h3>
-
-              <p className="mt-4 text-gray-500 leading-relaxed">
-                企業の業務継続を支えるために、現場およびリモートでの迅速かつ信頼性の高いサポートを提供し、課題解決に貢献します。
-              </p>
-            </div>
-
-            {/* CARD 5 */}
-            <div className="group relative p-10 bg-white rounded-2xl shadow-sm border border-gray-200 hover-lift transition-all duration-300 fade-up overflow-hidden">
-              
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none bg-[linear-gradient(to_right,rgba(191,219,254,0.4),transparent,rgba(233,213,255,0.4))]"></div>
-
-              <div className="mb-6 inline-flex p-4 rounded-xl bg-gray-100">
-                <Globe className="w-6 h-6 text-gray-700" /> {/* ✅ fixed */}
-              </div>
-
-              <h3 className="text-xl font-semibold">
-                グローバル人材採用
-              </h3>
-
-              <p className="mt-4 text-gray-500 leading-relaxed">
-                世界中から意欲ある人材を採用し、日本での就労とキャリア形成の機会を提供します。
-              </p>
-            </div>
-
-            {/* CARD 6 */}
-            <div className="group relative p-10 bg-white rounded-2xl shadow-sm border border-gray-200 hover-lift transition-all duration-300 fade-up overflow-hidden">
-              
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none bg-[linear-gradient(to_right,rgba(191,219,254,0.4),transparent,rgba(233,213,255,0.4))]"></div>
-
-              <div className="mb-6 inline-flex p-4 rounded-xl bg-gray-100">
-                <Building2 className="w-6 h-6 text-gray-700" /> {/* ✅ fixed */}
-              </div>
-
-              <h3 className="text-xl font-semibold">
-                スタッフィングマネジメント（人材管理）
-              </h3>
-
-              <p className="mt-4 text-gray-500 leading-relaxed">
-                スケジュール管理、配置、最適な人員運用など、企業の人材管理を包括的にサポートします。
+              <p className="mt-4 text-gray-300">
+                ご覧いただき、誠にありがとうございます。
               </p>
             </div>
 
           </div>
+
         </div>
-      </section>
+      </div>
+
+      {/* CARD 2 */}
+      <div
+        onClick={() => setActiveCard(activeCard === 2 ? null : 2)}
+        className="relative h-80 md:h-96 perspective cursor-pointer fade-up"
+      >
+
+        <div
+          className={`relative w-full h-full duration-700 transform-style-preserve-3d ${
+            activeCard === 2 ? "rotate-y-180" : ""
+          }`}
+        >
+
+          {/* FRONT */}
+          <div className="absolute inset-0 backface-hidden group p-10 bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+
+            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none bg-[linear-gradient(to_right,rgba(191,219,254,0.4),transparent,rgba(233,213,255,0.4))]"></div>
+
+            <div className="mb-6 inline-flex p-4 rounded-xl bg-gray-100">
+              <LineChart className="w-6 h-6 text-gray-700" />
+            </div>
+
+            <h3 className="text-xl font-semibold">
+              ビジネスコンサルティング
+            </h3>
+
+            <p className="mt-4 text-gray-500 leading-relaxed">
+              生産性の向上、業務プロセスの最適化、そして確かな経営判断を支援する専門的なアドバイスを提供します。
+            </p>
+
+          </div>
+
+          {/* BACK */}
+          <div className="absolute inset-0 rotate-y-180 backface-hidden bg-black text-white rounded-2xl flex items-center justify-center text-center p-10 shadow-xl">
+
+            <div>
+              <h3 className="text-3xl font-bold">
+                Thank You!
+              </h3>
+
+              <p className="mt-4 text-gray-300">
+                ご覧いただき、誠にありがとうございます。
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      {/* CARD 3 */}
+      <div
+        onClick={() => setActiveCard(activeCard === 3 ? null : 3)}
+        className="relative h-80 md:h-96 perspective cursor-pointer fade-up"
+      >
+
+        <div
+          className={`relative w-full h-full duration-700 transform-style-preserve-3d ${
+            activeCard === 3 ? "rotate-y-180" : ""
+          }`}
+        >
+
+          {/* FRONT */}
+          <div className="absolute inset-0 backface-hidden group p-10 bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+
+            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none bg-[linear-gradient(to_right,rgba(191,219,254,0.4),transparent,rgba(233,213,255,0.4))]"></div>
+
+            <div className="mb-6 inline-flex p-4 rounded-xl bg-gray-100">
+              <UserCheck className="w-6 h-6 text-gray-700" />
+            </div>
+
+            <h3 className="text-xl font-semibold">
+              人材紹介・マッチング
+            </h3>
+
+            <p className="mt-4 text-gray-500 leading-relaxed">
+              日本国内の安定した企業と、世界各国の優秀な人材を結びつけ、企業と求職者双方にとって最適なマッチングを実現します。
+            </p>
+
+          </div>
+
+          {/* BACK */}
+          <div className="absolute inset-0 rotate-y-180 backface-hidden bg-black text-white rounded-2xl flex items-center justify-center text-center p-10 shadow-xl">
+
+            <div>
+              <h3 className="text-3xl font-bold">
+                Thank You!
+              </h3>
+
+              <p className="mt-4 text-gray-300">
+                ご覧いただき、誠にありがとうございます。
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      {/* CARD 4 */}
+      <div
+        onClick={() => setActiveCard(activeCard === 4 ? null : 4)}
+        className="relative h-80 md:h-96 perspective cursor-pointer fade-up"
+      >
+
+        <div
+          className={`relative w-full h-full duration-700 transform-style-preserve-3d ${
+            activeCard === 4 ? "rotate-y-180" : ""
+          }`}
+        >
+
+          {/* FRONT */}
+          <div className="absolute inset-0 backface-hidden group p-10 bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+
+            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none bg-[linear-gradient(to_right,rgba(191,219,254,0.4),transparent,rgba(233,213,255,0.4))]"></div>
+
+            <div className="mb-6 inline-flex p-4 rounded-xl bg-gray-100">
+              <Wrench className="w-6 h-6 text-gray-700" />
+            </div>
+
+            <h3 className="text-xl font-semibold">
+              業務サポート
+            </h3>
+
+            <p className="mt-4 text-gray-500 leading-relaxed">
+              企業の業務継続を支えるために、現場およびリモートでの迅速かつ信頼性の高いサポートを提供し、課題解決に貢献します。
+            </p>
+
+          </div>
+
+          {/* BACK */}
+          <div className="absolute inset-0 rotate-y-180 backface-hidden bg-black text-white rounded-2xl flex items-center justify-center text-center p-10 shadow-xl">
+
+            <div>
+              <h3 className="text-3xl font-bold">
+                Thank You!
+              </h3>
+
+              <p className="mt-4 text-gray-300">
+                ご覧いただき、誠にありがとうございます。
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      {/* CARD 5 */}
+      <div
+        onClick={() => setActiveCard(activeCard === 5 ? null : 5)}
+        className="relative h-80 md:h-96 perspective cursor-pointer fade-up"
+      >
+
+        <div
+          className={`relative w-full h-full duration-700 transform-style-preserve-3d ${
+            activeCard === 5 ? "rotate-y-180" : ""
+          }`}
+        >
+
+          {/* FRONT */}
+          <div className="absolute inset-0 backface-hidden group p-10 bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+
+            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none bg-[linear-gradient(to_right,rgba(191,219,254,0.4),transparent,rgba(233,213,255,0.4))]"></div>
+
+            <div className="mb-6 inline-flex p-4 rounded-xl bg-gray-100">
+              <Globe className="w-6 h-6 text-gray-700" />
+            </div>
+
+            <h3 className="text-xl font-semibold">
+              グローバル人材採用
+            </h3>
+
+            <p className="mt-4 text-gray-500 leading-relaxed">
+              世界中から意欲ある人材を採用し、日本での就労とキャリア形成の機会を提供します。
+            </p>
+
+          </div>
+
+          {/* BACK */}
+          <div className="absolute inset-0 rotate-y-180 backface-hidden bg-black text-white rounded-2xl flex items-center justify-center text-center p-10 shadow-xl">
+
+            <div>
+              <h3 className="text-3xl font-bold">
+                Thank You!
+              </h3>
+
+              <p className="mt-4 text-gray-300">
+                ご覧いただき、誠にありがとうございます。
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      {/* CARD 6 */}
+      <div
+        onClick={() => setActiveCard(activeCard === 6 ? null : 6)}
+        className="relative h-80 md:h-96 perspective cursor-pointer fade-up"
+      >
+
+        <div
+          className={`relative w-full h-full duration-700 transform-style-preserve-3d ${
+            activeCard === 6 ? "rotate-y-180" : ""
+          }`}
+        >
+
+          {/* FRONT */}
+          <div className="absolute inset-0 backface-hidden group p-10 bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+
+            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none bg-[linear-gradient(to_right,rgba(191,219,254,0.4),transparent,rgba(233,213,255,0.4))]"></div>
+
+            <div className="mb-6 inline-flex p-4 rounded-xl bg-gray-100">
+              <Building2 className="w-6 h-6 text-gray-700" />
+            </div>
+
+            <h3 className="text-xl font-semibold">
+              スタッフィングマネジメント（人材管理）
+            </h3>
+
+            <p className="mt-4 text-gray-500 leading-relaxed">
+              スケジュール管理、配置、最適な人員運用など、企業の人材管理を包括的にサポートします。
+            </p>
+
+          </div>
+
+          {/* BACK */}
+          <div className="absolute inset-0 rotate-y-180 backface-hidden bg-black text-white rounded-2xl flex items-center justify-center text-center p-10 shadow-xl">
+
+            <div>
+              <h3 className="text-3xl font-bold">
+                Thank You!
+              </h3>
+
+              <p className="mt-4 text-gray-300">
+                ご覧いただき、誠にありがとうございます。
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* CTA */}
       <section className="py-28 px-6 bg-white text-center">
