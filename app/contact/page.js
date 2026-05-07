@@ -279,25 +279,45 @@ const [verified, setVerified] = useState(false);
 
               <button
   type="button"
- onClick={async () => {
-  const savedOtp = localStorage.getItem("emailOtp");
+  onClick={async () => {
 
-  if (!savedOtp) {
-    toast.error("No OTP found");
-    return;
-  }
+    if (!isValidEmail(form.email)) {
+      toast.error("Enter a valid email first");
+      return;
+    }
 
-  if (otp === savedOtp) {
-    toast.success("Email verified!");
-    setVerified(true);
-    localStorage.removeItem("emailOtp");
-  } else {
-    toast.error("Invalid code");
-  }
-}}
+    try {
+      const res = await fetch("/api/send-email-otp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: form.email,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+
+        // ✅ save otp locally
+        localStorage.setItem("emailOtp", data.otp);
+
+        setOtpSent(true);
+
+        toast.success("Verification code sent!");
+      } else {
+        toast.error(data.error || "Failed to send OTP");
+      }
+
+    } catch (err) {
+      toast.error("Something went wrong");
+    }
+  }}
   className="mt-2 text-sm text-blue-600 hover:underline"
 >
- Send Verification Code
+  Send Verification Code
 </button>
 
     {/* ✅ INSERT OTP INPUT HERE */}
@@ -312,27 +332,27 @@ const [verified, setVerified] = useState(false);
       />
 <button
   type="button"
-onClick={async () => {
-  const res = await fetch("/api/verify-email-otp", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      email: form.email,
-      code: otp,
-    }),
-  });
+  onClick={() => {
 
-  const data = await res.json();
+    const savedOtp = localStorage.getItem("emailOtp");
 
-  if (data.success) {
-    toast.success("Email verified!");
-    setVerified(true);
-  } else {
-    toast.error(data.error || "Invalid code");
-  }
-}}
+    if (!savedOtp) {
+      toast.error("No OTP found");
+      return;
+    }
+
+    if (otp === savedOtp) {
+
+      toast.success("Email verified!");
+
+      setVerified(true);
+
+      localStorage.removeItem("emailOtp");
+
+    } else {
+      toast.error("Invalid code");
+    }
+  }}
   className="mt-2 w-full bg-green-600 text-white py-2 rounded-lg"
 >
   Verify Code
