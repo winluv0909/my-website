@@ -1,16 +1,29 @@
+import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import { connectDB } from "@/lib/mongodb";
-import Contact from "@/models/contact";
 
 export async function POST(req) {
   try {
-    const { name, email, phone, message } = await req.json();
+    const body = await req.json();
 
-    await connectDB();
+    const {
+      name,
+      email,
+      phone,
+      message,
+    } = body;
 
-    // SAVE TO DATABASE
-    await Contact.create({ name, email, phone, message });
+    // ✅ Validate fields
+    if (!name || !email || !phone || !message) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "All fields are required",
+        },
+        { status: 400 }
+      );
+    }
 
+    // ✅ Create transporter
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -19,37 +32,54 @@ export async function POST(req) {
       },
     });
 
-    // SEND TO YOU
-    await transporter.sendMail({
+    // ✅ SEND EMAIL
+    const info = await transporter.sendMail({
       from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER,
-      subject: `New Message from ${name}`,
-      text: `
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
 
-${message}
+      // ✅ RECEIVER
+      to: process.env.EMAIL_USER,
+
+      subject: `New Contact Form Message from ${name}`,
+
+      html: `
+        <div style="font-family:sans-serif">
+          <h2>New Website Inquiry</h2>
+
+          <p><strong>Name:</strong> ${name}</p>
+
+          <p><strong>Email:</strong> ${email}</p>
+
+          <p><strong>Phone:</strong> ${phone}</p>
+
+          <p><strong>Message:</strong></p>
+
+          <div style="padding:12px;border:1px solid #ccc;border-radius:8px">
+            ${message}
+          </div>
+        </div>
       `,
     });
 
-    // AUTO REPLY TO USER
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: email,
-      subject: "We received your message",
-      text: `Hi ${name},
+    // ✅ SHOW RESULT IN TERMINAL
+    console.log("EMAIL SENT SUCCESSFULLY");
+    console.log(info);
 
-Thank you for contacting Osaki Sogyo.
-
-We have received your message and will respond shortly.
-
-Best regards,
-Osaki Sogyo Team`,
+    return NextResponse.json({
+      success: true,
     });
 
-    return Response.json({ success: true });
-  } catch (err) {
-    return Response.json({ success: false });
+  } catch (error) {
+
+    // ✅ SHOW ERROR IN TERMINAL
+    console.log("CONTACT API ERROR:");
+    console.log(error);
+
+    return NextResponse.json(
+      {
+        success: false,
+        error: "Failed to send email",
+      },
+      { status: 500 }
+    );
   }
 }
