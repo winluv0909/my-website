@@ -242,6 +242,102 @@ export default function Home() {
         </div>
       </section>
 
+      {/* STATS SECTION */}
+<section className="py-24 px-6 bg-black text-white overflow-hidden">
+  <div className="max-w-6xl mx-auto">
+
+    {/* TITLE */}
+    <div className="text-center fade-up">
+      <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+        私たちの実績
+      </h2>
+
+      <p className="mt-4 text-gray-400 text-lg">
+        長年にわたり築き上げてきた信頼と成果
+      </p>
+    </div>
+
+    {/* STATS GRID */}
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
+
+      {/* CARD 1 */}
+      <div className="fade-up group bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 text-center">
+
+        <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-500">
+          1990
+        </div>
+
+        <p className="mt-5 text-gray-300 tracking-wide">
+          Founded
+        </p>
+
+      </div>
+
+      {/* CARD 2 */}
+      <div className="fade-up group bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 text-center">
+
+        <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-500">
+          1000+
+        </div>
+
+        <p className="mt-5 text-gray-300 tracking-wide">
+          Registered Staff
+        </p>
+
+      </div>
+
+      {/* CARD 3 */}
+      <div className="fade-up group bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 text-center">
+
+        <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-500">
+          30+
+        </div>
+
+        <p className="mt-5 text-gray-300 tracking-wide">
+          Years Experience
+        </p>
+
+      </div>
+
+      {/* CARD 4 */}
+      <div className="fade-up group bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 text-center">
+
+        <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-500">
+          Trusted
+        </div>
+
+        <p className="mt-5 text-gray-300 tracking-wide">
+          Business Partners
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+{/* CTA */}
+<section className="py-28 px-6 bg-white text-center">
+
+  <div className="fade-up">
+    <h2 className="text-3xl font-semibold tracking-tight">
+      共に働きましょう
+    </h2>
+
+    <p className="mt-6 text-gray-500">
+      ぜひ本日お問い合わせください。共に素晴らしいものを創り上げましょう。
+    </p>
+
+    <a href="/contact">
+      <button className="mt-8 px-8 py-4 bg-black text-white rounded-xl hover:bg-gray-800 hover:scale-105 transition-all duration-300 shadow-lg">
+        お気軽にお問い合わせください
+      </button>
+    </a>
+  </div>
+
+</section>
+
     </main>
   );
 }
