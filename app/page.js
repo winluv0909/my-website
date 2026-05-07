@@ -182,6 +182,66 @@ export default function Home() {
         </div>
       </section>
 
+      {/* STATS SECTION */}
+<section className="py-24 px-6 bg-black text-white">
+  <div className="max-w-6xl mx-auto">
+
+    <div className="text-center fade-up">
+      <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+        私たちの実績
+      </h2>
+
+      <p className="mt-4 text-gray-400">
+        長年にわたり築き上げてきた信頼と成果
+      </p>
+    </div>
+
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
+
+      {/* ITEM */}
+      <div className="text-center fade-up group">
+        <h3 className="text-5xl font-bold text-white transition duration-300 group-hover:scale-110">
+          1990
+        </h3>
+        <p className="mt-4 text-gray-400">
+          設立年
+        </p>
+      </div>
+
+      {/* ITEM */}
+      <div className="text-center fade-up group">
+        <h3 className="text-5xl font-bold text-white transition duration-300 group-hover:scale-110">
+          1000+
+        </h3>
+        <p className="mt-4 text-gray-400">
+          登録スタッフ
+        </p>
+      </div>
+
+      {/* ITEM */}
+      <div className="text-center fade-up group">
+        <h3 className="text-5xl font-bold text-white transition duration-300 group-hover:scale-110">
+          30+
+        </h3>
+        <p className="mt-4 text-gray-400">
+          年以上の経験
+        </p>
+      </div>
+
+      {/* ITEM */}
+      <div className="text-center fade-up group">
+        <h3 className="text-5xl font-bold text-white transition duration-300 group-hover:scale-110">
+          24/7
+        </h3>
+        <p className="mt-4 text-gray-400">
+          サポート体制
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
       {/* CTA */}
       <section className="py-28 px-6 bg-white text-center">
         <FadeUp>
