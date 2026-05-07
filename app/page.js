@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import FadeUp from "../components/FadeUp";
 
 export default function Home() {
 
@@ -116,7 +115,7 @@ export default function Home() {
       >
         <FadeUp>
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-semibold tracking-tight">
+            <h2 className="fade-up text-3xl font-semibold tracking-tight">
               会社概要
             </h2>
 
@@ -135,7 +134,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto text-center">
 
           <FadeUp>
-            <h2 className="text-3xl font-semibold tracking-tight">
+            <h2 className="fade-up text-3xl font-semibold tracking-tight">
               当社のサービス
             </h2>
           </FadeUp>
@@ -240,7 +239,7 @@ export default function Home() {
       {/* CTA */}
       <section className="py-28 px-6 bg-white text-center">
         <FadeUp>
-          <h2 className="text-3xl font-semibold tracking-tight">
+          <h2 className="fade-up text-3xl font-semibold tracking-tight">
             共に働きましょう
           </h2>
 
