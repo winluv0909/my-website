@@ -9,28 +9,15 @@ export async function POST(req) {
 
     if (!email) {
       return NextResponse.json(
-        {
-          success: false,
-          error: "Email is required",
-        },
+        { success: false, message: "Email is required" },
         { status: 400 }
       );
     }
 
-    // ✅ Generate OTP
-    const otp = Math.floor(
-      100000 + Math.random() * 900000
-    ).toString();
+    // Generate OTP
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
-    // ✅ Initialize global storage
-    if (!global.emailOtps) {
-      global.emailOtps = {};
-    }
-
-    // ✅ Save OTP
-    global.emailOtps[email] = otp;
-
-    // ✅ Nodemailer transporter
+    // Gmail transporter
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -39,31 +26,36 @@ export async function POST(req) {
       },
     });
 
-    // ✅ Send email
+    // Send Email
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: email,
       subject: "Your Verification Code",
       html: `
-        <div style="font-family:sans-serif">
+        <div style="font-family: Arial;">
           <h2>Email Verification</h2>
           <p>Your OTP code is:</p>
           <h1>${otp}</h1>
+          <p>This code will expire soon.</p>
         </div>
       `,
     });
 
+    console.log("OTP SENT TO:", email);
+    console.log("OTP CODE:", otp);
+
     return NextResponse.json({
       success: true,
+      otp,
     });
 
   } catch (error) {
-    console.log("SEND OTP ERROR:", error);
+    console.error("SEND OTP ERROR:", error);
 
     return NextResponse.json(
       {
         success: false,
-        error: "Something went wrong",
+        message: error.message,
       },
       { status: 500 }
     );
