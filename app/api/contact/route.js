@@ -3,8 +3,14 @@ import nodemailer from "nodemailer";
 
 export async function POST(req) {
   try {
+
+    // ✅ Parse body
     const body = await req.json();
 
+    console.log("BODY RECEIVED:");
+    console.log(body);
+
+    // ✅ Must EXACTLY match frontend names
     const {
       name,
       email,
@@ -12,8 +18,11 @@ export async function POST(req) {
       message,
     } = body;
 
-    // ✅ Validate fields
+    // ✅ Validation
     if (!name || !email || !phone || !message) {
+
+      console.log("MISSING REQUIRED FIELDS");
+
       return NextResponse.json(
         {
           success: false,
@@ -32,18 +41,21 @@ export async function POST(req) {
       },
     });
 
-    // ✅ SEND EMAIL
+    console.log("TRANSPORTER CREATED");
+
+    // ✅ Send email
     const info = await transporter.sendMail({
       from: process.env.EMAIL_USER,
 
-      // ✅ RECEIVER
+      // ✅ Send TO yourself
       to: process.env.EMAIL_USER,
 
-      subject: `New Contact Form Message from ${name}`,
+      subject: `New Inquiry from ${name}`,
 
       html: `
         <div style="font-family:sans-serif">
-          <h2>New Website Inquiry</h2>
+
+          <h2>New Contact Form Submission</h2>
 
           <p><strong>Name:</strong> ${name}</p>
 
@@ -53,14 +65,14 @@ export async function POST(req) {
 
           <p><strong>Message:</strong></p>
 
-          <div style="padding:12px;border:1px solid #ccc;border-radius:8px">
+          <div style="padding:12px;border:1px solid #ccc;border-radius:8px;">
             ${message}
           </div>
+
         </div>
       `,
     });
 
-    // ✅ SHOW RESULT IN TERMINAL
     console.log("EMAIL SENT SUCCESSFULLY");
     console.log(info);
 
@@ -70,14 +82,13 @@ export async function POST(req) {
 
   } catch (error) {
 
-    // ✅ SHOW ERROR IN TERMINAL
     console.log("CONTACT API ERROR:");
     console.log(error);
 
     return NextResponse.json(
       {
         success: false,
-        error: "Failed to send email",
+        error: error.message,
       },
       { status: 500 }
     );
