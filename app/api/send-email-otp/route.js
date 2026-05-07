@@ -7,6 +7,11 @@ global.otpStore = global.otpStore || {};
 export async function POST(req) {
   const { email } = await req.json();
 
+  if (data.success) {
+  localStorage.setItem("emailOtp", data.otp);
+  toast.success("OTP sent!");
+}
+
   // 🔢 Generate OTP
   const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
@@ -38,7 +43,10 @@ export async function POST(req) {
       text: `Your OTP code is: ${otp}`,
     });
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({
+  success: true,
+  otp,
+});
   } catch (err) {
     console.error("EMAIL ERROR:", err.message);
 

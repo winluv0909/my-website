@@ -280,23 +280,19 @@ const [verified, setVerified] = useState(false);
               <button
   type="button"
  onClick={async () => {
-  const res = await fetch("/api/send-email-otp", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      email: form.email,
-    }),
-  });
+  const savedOtp = localStorage.getItem("emailOtp");
 
-  const data = await res.json();
+  if (!savedOtp) {
+    toast.error("No OTP found");
+    return;
+  }
 
-  if (data.success) {
-    toast.success("OTP sent to your email!");
-    setOtpSent(true);
+  if (otp === savedOtp) {
+    toast.success("Email verified!");
+    setVerified(true);
+    localStorage.removeItem("emailOtp");
   } else {
-    toast.error(data.error || "Failed to send OTP");
+    toast.error("Invalid code");
   }
 }}
   className="mt-2 text-sm text-blue-600 hover:underline"
