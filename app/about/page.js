@@ -79,8 +79,8 @@ export default function AboutPage() {
     {/* Image */}
    {/* Image */}
 <img
-  src="/images/president.png"
-  alt="President"
+  src="/images/director.png"
+  alt="Director"
   className="relative 
   w-40 sm:w-48 md:w-72 lg:w-80
   h-auto
