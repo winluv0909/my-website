@@ -58,11 +58,11 @@ export default function RootLayout({ children }) {
         />
 
         {/* PAGE CONTENT */}
-       <main className="pt-24 grow">
+       <main className="pt-24 grow overflow-x-hidden">
         <PageTransition>
-         {children}
-      </PageTransition>
-    </main>
+          {children}
+        </PageTransition>
+      </main>
 
         {/* BACK TO TOP */}
         <BackToTop />
