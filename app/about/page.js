@@ -77,11 +77,19 @@ export default function AboutPage() {
     </div>
 
     {/* Image */}
-    <img
-      src="/images/director.png"
-      alt="Director"
-      className="relative w-72 md:w-80 object-contain drop-shadow-2xl transition-all duration-500 ease-out group-hover:scale-105 group-hover:-translate-y-2"
-    />
+   {/* Image */}
+<img
+  src="/images/president.png"
+  alt="President"
+  className="relative 
+  w-40 sm:w-48 md:w-72 lg:w-80
+  h-auto
+  object-contain
+  mx-auto
+  transition duration-500 ease-out
+  group-hover:scale-105
+  md:translate-x-6 lg:translate-x-1"
+/>
 
      {/* Name */}
               <p className="mt-4 text-3xl md:text-2xl font-semibold text-gray-900">
