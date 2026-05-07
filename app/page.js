@@ -46,7 +46,7 @@ export default function Home() {
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-md h-112 bg-pink-100/30 rounded-full blur-3xl animate-pulse"></div>
 
           {/* Grid Overlay */}
-          <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] bg-[size:100px_100px]]"></div>
+          <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] bg-[size:100px_100px]"></div>
         </div>
 
         {/* CONTENT */}
@@ -131,7 +131,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-16 items-stretch">
 
             {/* CARD 1 */}
-            <div className="fade-up p-10 bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+            <div className="fade-up p-10 bg-white rounded-2xl shadow-sm transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl flex flex-col h-full cursor-pointer">
               <h3 className="font-semibold text-lg">
                 人材アウトソーシング
               </h3>
@@ -142,7 +142,7 @@ export default function Home() {
             </div>
 
             {/* CARD 2 */}
-            <div className="fade-up p-10 bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+            <div className="fade-up p-10 bg-white rounded-2xl shadow-sm transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl flex flex-col h-full cursor-pointer">
               <h3 className="font-semibold text-lg">
                 グローバル採用・人材マッチング
               </h3>
@@ -153,7 +153,7 @@ export default function Home() {
             </div>
 
             {/* CARD 3 */}
-            <div className="fade-up p-10 bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+            <div className="fade-up p-10 bg-white rounded-2xl shadow-sm transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl flex flex-col h-full cursor-pointer">
               <h3 className="font-semibold text-lg">
                 ビジネス・人材サポートサービス
               </h3>
