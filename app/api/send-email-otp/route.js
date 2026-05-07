@@ -3,22 +3,34 @@ import nodemailer from "nodemailer";
 
 export async function POST(req) {
   try {
-    // ✅ FIXED
-    const data = await req.json();
+    const body = await req.json();
 
-    const { email } = data;
+    const { email } = body;
 
     if (!email) {
       return NextResponse.json(
-        { error: "Email is required" },
+        {
+          success: false,
+          error: "Email is required",
+        },
         { status: 400 }
       );
     }
 
-    // Generate OTP
-    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    // ✅ Generate OTP
+    const otp = Math.floor(
+      100000 + Math.random() * 900000
+    ).toString();
 
-    // Create transporter
+    // ✅ Initialize global storage
+    if (!global.emailOtps) {
+      global.emailOtps = {};
+    }
+
+    // ✅ Save OTP
+    global.emailOtps[email] = otp;
+
+    // ✅ Nodemailer transporter
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -27,7 +39,7 @@ export async function POST(req) {
       },
     });
 
-    // Send email
+    // ✅ Send email
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: email,
@@ -43,14 +55,16 @@ export async function POST(req) {
 
     return NextResponse.json({
       success: true,
-      otp,
     });
 
   } catch (error) {
-    console.log(error);
+    console.log("SEND OTP ERROR:", error);
 
     return NextResponse.json(
-      { error: "Something went wrong" },
+      {
+        success: false,
+        error: "Something went wrong",
+      },
       { status: 500 }
     );
   }

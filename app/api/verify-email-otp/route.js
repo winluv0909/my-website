@@ -1,47 +1,63 @@
 import { NextResponse } from "next/server";
 
-// ✅ use same global storage
-global.otpStore = global.otpStore || {};
-
 export async function POST(req) {
-  const { email, code } = await req.json();
+  try {
+    const body = await req.json();
 
-  const record = global.otpStore[email];
+    const { email, code } = body;
 
-  // 🧠 DEBUG LOGS
-  console.log("========== VERIFY OTP ==========");
-  console.log("INPUT EMAIL:", email);
-  console.log("INPUT CODE:", code);
-  console.log("STORED RECORD:", record);
+    // ✅ Check if fields exist
+    if (!email || !code) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Email and code are required",
+        },
+        { status: 400 }
+      );
+    }
 
-  if (!record) {
-    return NextResponse.json({
-      success: false,
-      error: "No OTP found",
-    });
-  }
+    // ✅ Get saved OTP from memory/global
+    const savedOtp = global.emailOtps?.[email];
 
-  // ⏳ Check expiration
-  if (Date.now() > record.expires) {
-    delete global.otpStore[email];
+    // ✅ No OTP found
+    if (!savedOtp) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "OTP expired or not found",
+        },
+        { status: 400 }
+      );
+    }
 
-    return NextResponse.json({
-      success: false,
-      error: "OTP expired",
-    });
-  }
+    // ✅ Compare OTP
+    if (savedOtp !== code) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Invalid code",
+        },
+        { status: 400 }
+      );
+    }
 
-  // ✅ Compare safely
-  if (record.code.toString() === code.toString().trim()) {
-    delete global.otpStore[email];
+    // ✅ Remove OTP after successful verification
+    delete global.emailOtps[email];
 
     return NextResponse.json({
       success: true,
+      message: "Email verified successfully",
     });
-  }
+  } catch (error) {
+    console.log("VERIFY OTP ERROR:", error);
 
-  return NextResponse.json({
-    success: false,
-    error: "Invalid code",
-  });
+    return NextResponse.json(
+      {
+        success: false,
+        error: "Server error",
+      },
+      { status: 500 }
+    );
+  }
 }
