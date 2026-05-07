@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import CountUp from "react-countup";
 
 export default function Home() {
 
@@ -276,56 +277,74 @@ const handleFlip = (index) => {
     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
 
       {/* CARD 1 */}
-      <div className="fade-up group bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 text-center">
+      <div className="fade-up group bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 text-center">
 
-        <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-500">
-          1990
-        </div>
+    <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-500">
+      <CountUp
+        end={1990}
+        duration={3}
+        enableScrollSpy
+        scrollSpyOnce
+      />
+    </div>
 
-        <p className="mt-5 text-gray-300 tracking-wide">
-          Founded
-        </p>
+    <p className="mt-5 text-gray-300 tracking-wide">
+      Founded
+    </p>
 
-      </div>
+  </div>
+
 
       {/* CARD 2 */}
-      <div className="fade-up group bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 text-center">
+       <div className="fade-up group bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 text-center">
 
-        <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-500">
-          1000+
-        </div>
+    <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-500">
+      <CountUp
+        end={1000}
+        duration={3}
+        enableScrollSpy
+        scrollSpyOnce
+      />
+      +
+    </div>
 
-        <p className="mt-5 text-gray-300 tracking-wide">
-          Registered Staff
-        </p>
+    <p className="mt-5 text-gray-300 tracking-wide">
+      Registered Staff
+    </p>
 
-      </div>
+  </div>
 
       {/* CARD 3 */}
-      <div className="fade-up group bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 text-center">
+       <div className="fade-up group bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 text-center">
 
-        <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-500">
-          30+
-        </div>
+    <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-500">
+      <CountUp
+        end={30}
+        duration={3}
+        enableScrollSpy
+        scrollSpyOnce
+      />
+      +
+    </div>
 
-        <p className="mt-5 text-gray-300 tracking-wide">
-          Years Experience
-        </p>
+    <p className="mt-5 text-gray-300 tracking-wide">
+      Years Experience
+    </p>
 
-      </div>
+  </div>
 
       {/* CARD 4 */}
-      <div className="fade-up group bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 text-center">
+   <div className="fade-up group bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 text-center">
 
-        <div className="text-4xl md:text-5xl font-bold leading-tight bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-500">
-  Trusted
-  <br />
-  Partner
-</div>
+    <div className="text-4xl md:text-5xl font-bold leading-tight bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-500">
+      Trusted
+      <br />
+      Partner
+    </div>
 
-        <p className="mt-5 text-gray-300 tracking-wide">
-          Business Partners
-        </p>
+    <p className="mt-5 text-gray-300 tracking-wide">
+      Business Partners
+    </p>
 
       </div>
 
