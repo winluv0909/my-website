@@ -281,11 +281,10 @@ const handleFlip = (index) => {
 
     <div className="text-4xl sm:text-5xl md:text-6xl font-bold bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-500">
       <CountUp
-        end={1990}
-        duration={3}
-        enableScrollSpy
-        scrollSpyOnce
-      />
+  end={1990}
+  duration={3}
+  separator=""
+/>
     </div>
 
     <p className="mt-5 text-gray-300 tracking-wide">
