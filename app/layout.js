@@ -27,7 +27,7 @@ const notoJP = Noto_Sans_JP({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://your-domain.vercel.app"),
+  metadataBase: new URL("https://osakisogyo.vercel.app"),
 
   title: {
     default: "株式会社大崎総業 | Oosaki Sogyo Co., Ltd.",
@@ -84,7 +84,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className={`${notoJP.className} min-h-full flex flex-col bg-white`}>
+      <body className="overflow-x-hidden">
 
         <ScrollProgress />
 

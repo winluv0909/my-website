@@ -274,12 +274,12 @@ const handleFlip = (index) => {
     </div>
 
     {/* STATS GRID */}
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-16">
 
       {/* CARD 1 */}
-      <div className="fade-up group bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 text-center">
+      <div className="fade-up group bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 min-h-65  backdrop-blur-sm hover:bg-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 text-center">
 
-    <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-500">
+    <div className="text-4xl sm:text-5xl md:text-6xl font-bold bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-500">
       <CountUp
         end={1990}
         duration={3}
@@ -296,7 +296,7 @@ const handleFlip = (index) => {
 
 
       {/* CARD 2 */}
-       <div className="fade-up group bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 text-center">
+       <div className="fade-up group bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 min-h-65 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 text-center">
 
     <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-500">
       <CountUp
@@ -315,7 +315,7 @@ const handleFlip = (index) => {
   </div>
 
       {/* CARD 3 */}
-       <div className="fade-up group bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 text-center">
+       <div className="fade-up group bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 min-h-65 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 text-center">
 
     <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-500">
       <CountUp
@@ -334,9 +334,9 @@ const handleFlip = (index) => {
   </div>
 
       {/* CARD 4 */}
-   <div className="fade-up group bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 text-center">
+   <div className="fade-up group bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 min-h-65  backdrop-blur-sm hover:bg-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 text-center">
 
-    <div className="text-4xl md:text-5xl font-bold leading-tight bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-500">
+    <div className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-500">
       Trusted
       <br />
       Partner

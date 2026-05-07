@@ -142,7 +142,7 @@ const [verified, setVerified] = useState(false);
             <div className="flex items-center gap-3">
               <span>📍</span>
               <div>
-                <p className="text-sm text-gray-500">住所</p>
+                <p className="text-sm text-gray-500 wrap-break-words">住所</p>
                 <p className="font-medium text-gray-900">
                   1-9 Sakaimihara, Isesaki City, Gunma Prefecture 370-0115
                 </p>
@@ -152,8 +152,9 @@ const [verified, setVerified] = useState(false);
           </div>
 
           {/* MAP */}
-          <div className="mt-8 rounded-2xl overflow-hidden shadow-md">
+          <div className="w-full max-w-full overflow-hidden rounded-2xl">
             <iframe
+              className="w-full"
               src="https://maps.google.com/maps?q=Japan, 〒370-0115 Gunma, Isesaki, Sakaimihara, １−9&t=&z=13&ie=UTF8&iwloc=&output=embed"
               className="w-full h-64 border-0"
               loading="lazy"
