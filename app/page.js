@@ -302,9 +302,11 @@ export default function Home() {
       {/* CARD 4 */}
       <div className="fade-up group bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 text-center">
 
-        <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-500">
-          Trusted
-        </div>
+        <div className="text-4xl md:text-5xl font-bold leading-tight bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-500">
+  Trusted
+  <br />
+  Partner
+</div>
 
         <p className="mt-5 text-gray-300 tracking-wide">
           Business Partners
