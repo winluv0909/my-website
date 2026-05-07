@@ -34,15 +34,30 @@ export default function Navbar() {
   }, [open]);
 
   const navStyle = scrolled
-    ? "bg-white/80 backdrop-blur-xl shadow-sm border-b border-gray-200"
-    : "bg-transparent";
+  ? `
+    bg-white/70
+    backdrop-blur-2xl
+    border-b
+    border-white/20
+    shadow-[0_8px_30px_rgb(0,0,0,0.04)]
+  `
+  : "bg-transparent";
 
-  const desktopLinkStyle = (path) =>
-    `relative transition duration-300 ${
+  const linkStyle = (path) =>
+  `
+    relative
+    block
+    py-2
+    text-sm
+    tracking-wide
+    transition-all
+    duration-300
+    ${
       pathname === path
         ? "text-black font-semibold"
         : "text-gray-500 hover:text-black"
-    }`;
+    }
+  `;
 
   const mobileLinkStyle = (path) =>
     `text-lg py-3 border-b border-gray-100 transition duration-300 ${
@@ -139,11 +154,7 @@ export default function Navbar() {
       ></div>
 
       {/* MOBILE MENU */}
-      <div
-        className={`fixed top-0 right-0 h-full w-[82%] max-w-sm bg-white z-50 shadow-2xl transform transition-transform duration-300 ease-out md:hidden ${
-          open ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
+      <div className="md:hidden bg-white/80 backdrop-blur-2xl border-t border-white/20 px-6 pb-6 shadow-xl">
         <div className="pt-28 px-8 flex flex-col">
 
           <Link
