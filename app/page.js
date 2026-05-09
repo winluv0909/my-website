@@ -71,7 +71,7 @@ const handleFlip = (index) => {
           </div>
 
           <h1 className="fade-up mt-10 text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-tight">
-            株式会社 大崎総業
+            株式会社 大﨑総業
           </h1>
 
           <p className="fade-up mt-6 text-2xl md:text-3xl text-gray-600 font-light tracking-wide">

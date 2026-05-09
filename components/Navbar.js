@@ -78,7 +78,7 @@ export default function Navbar() {
           <Link href="/">
             <div className="cursor-pointer">
               <h1 className="text-lg md:text-xl font-bold tracking-wide text-black">
-                株式会社大崎総業
+                株式会社大﨑総業
               </h1>
 
               <p className="text-[10px] md:text-xs text-gray-500 tracking-[0.2em] uppercase">

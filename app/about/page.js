@@ -15,7 +15,7 @@ export default function AboutPage() {
         <FadeUp>
           <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
-              株式会社大崎総業について
+              株式会社大﨑総業について
             </h1>
 
             <p className="mt-6 text-xl text-gray-500 font-medium">
@@ -33,7 +33,7 @@ export default function AboutPage() {
           <FadeUp delay={0.1}>
             <div>
               <h2 className="text-3xl font-semibold tracking-tight">
-                株式会社 大崎総業
+                株式会社 大﨑総業
               </h2>
 
               <p className="mt-6 text-gray-600 leading-relaxed">
@@ -80,7 +80,7 @@ export default function AboutPage() {
 
                 {/* Katakana */}
                 <p className="mt-0 text-2xl md:text-2xl font-bold text-gray-800 -translate-x-1 tracking-wide">
-                  金子明宏氏
+                  金子晃弘氏
                 </p>
 
                 {/* Title */}
