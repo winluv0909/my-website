@@ -80,7 +80,7 @@ export default function AboutPage() {
 
                 {/* Katakana */}
                 <p className="mt-0 text-2xl md:text-2xl font-bold text-gray-800 -translate-x-1 tracking-wide">
-                  金子晃弘氏
+                  金子明弘
                 </p>
 
                 {/* Title */}

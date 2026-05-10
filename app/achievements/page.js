@@ -91,7 +91,7 @@ export default function Achievements() {
 
               {/* Japanese Name */}
               <p className="mt-1 text-xl md:text-2xl font-bold text-gray-800 tracking-wide">
-                金子明弘氏
+                金子明弘
               </p>
 
               {/* Title */}
